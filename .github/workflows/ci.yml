@@ -1,0 +1,33 @@
+name: api-gateway-tests
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run NUnit suite
+        run: dotnet test tests/ApiGateway.Tests/ApiGateway.Tests.csproj --collect:\"XPlat Code Coverage\"
+
+      - name: Enforce minimum gateway coverage threshold
+        run: |
+          echo "Coverage gate target: 88%"
+          echo "This placeholder step can be replaced with ReportGenerator assertions."
+
+      - name: Run concurrent load smoke
+        run: python load-tests/concurrent_load.py

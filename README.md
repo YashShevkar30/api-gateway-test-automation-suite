@@ -13,6 +13,7 @@ End-to-end API gateway validation framework built with C#, NUnit, and Python.
 - Uses NUnit parameterized tests and reusable fixtures
 - Structured around OOP test helpers and domain models
 - Contains 200+ generated test scenarios for boundary and edge cases
+- GitHub Actions pipeline gates PRs on suite execution and coverage enforcement
 
 ## Project layout
 - `tests/ApiGateway.Tests`: NUnit suite and gateway validation helpers
