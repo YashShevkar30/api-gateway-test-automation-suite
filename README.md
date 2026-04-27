@@ -17,4 +17,5 @@ End-to-end API gateway validation framework built with C#, NUnit, and Python.
 ## Project layout
 - `tests/ApiGateway.Tests`: NUnit suite and gateway validation helpers
 - `load-tests`: Python scripts for concurrent request simulation
+- `docs`: defect analysis templates for issue triage
 - `.github/workflows`: CI pipeline configuration
